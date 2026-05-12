@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Robert Correas-Rivera, a content and marketing professional with expertise in social media strategy, content creation, and AI-assisted workflows.">
   <title>Robert Correas-Rivera</title>
   <link rel="stylesheet" href="style.css">
   <style>
@@ -20,6 +21,7 @@
       text-transform: uppercase;
       color: var(--moss);
       margin-bottom: 1rem;
+      display: block;
     }
 
     .hero h1 {
@@ -57,7 +59,25 @@
       padding: 0.65rem 1.3rem;
       border: 1.5px solid var(--bark);
       color: var(--bark);
-      transition: background 0.15s, color 0.15s;
+      transition: background 0.15s, color 0.15s, transform 0.15s;
+      display: inline-block;
+    }
+    
+    .btn:hover { 
+      background: var(--bark); 
+      color: var(--cream);
+      transform: translateY(-2px);
+    }
+    
+    .btn.primary { 
+      background: var(--bark); 
+      color: var(--cream);
+    }
+    
+    .btn.primary:hover { 
+      background: var(--rust); 
+      border-color: var(--rust);
+      transform: translateY(-2px);
     }
 
     .btn:hover { background: var(--bark); color: var(--cream); }
@@ -171,7 +191,7 @@
 
     .nav-card:hover { background: var(--bark); color: var(--cream); }
     .nav-card:hover .nc-label { color: var(--rust); }
-    .nav-card:hover .nc-arrow { color: var(--rust); }
+    .nav-card:hover .nc-arrow { color: var(--rust); transform: translateX(4px); }
 
     .nc-label {
       font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -206,10 +226,10 @@
 </head>
 <body>
 
-<nav>
-  <a href="index.html" class="nav-name">RCR</a>
+<nav aria-label="Primary navigation">
+  <a href="index.html" class="nav-name" aria-label="Home page">RCR</a>
   <ul class="nav-links">
-    <li><a href="index.html" class="active">About</a></li>
+    <li><a href="index.html" class="active" aria-current="page">About</a></li>
     <li><a href="portfolio.html">Portfolio</a></li>
     <li><a href="gallery.html">Gallery</a></li>
     <li><a href="technical.html">Technical</a></li>
