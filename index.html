@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Robert Correas-Rivera</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── HERO ── */
+    .hero {
+      padding: 4rem 0 3rem;
+      border-bottom: 3px solid var(--bark);
+      margin-bottom: 3.5rem;
+    }
+
+    .hero-eyebrow {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--moss);
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 8vw, 4.5rem);
+      font-weight: 700;
+      line-height: 1.0;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--rust);
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--stone);
+      max-width: 520px;
+      line-height: 1.65;
+      margin-bottom: 2rem;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.65rem 1.3rem;
+      border: 1.5px solid var(--bark);
+      color: var(--bark);
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .btn:hover { background: var(--bark); color: var(--cream); }
+    .btn.primary { background: var(--bark); color: var(--cream); }
+    .btn.primary:hover { background: var(--rust); border-color: var(--rust); }
+
+    /* ── ABOUT GRID ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .photo-slot {
+      aspect-ratio: 3/4;
+      background: var(--fog);
+      border: 1.5px solid var(--bark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .photo-slot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo-slot .placeholder-text {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 0.6rem;
+      color: var(--stone);
+      text-align: center;
+      padding: 1rem;
+      letter-spacing: 0.08em;
+    }
+
+    /* ── BIO SECTION ── */
+    .bio {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 3rem;
+      margin-bottom: 4rem;
+      padding-bottom: 3rem;
+      border-bottom: 1.5px solid var(--fog);
+    }
+
+    .bio-sidebar {}
+
+    .bio-sidebar .label-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .label-item {}
+    .label-item .lk {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--moss);
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+    .label-item .lv {
+      font-size: 0.9rem;
+      color: var(--bark);
+      line-height: 1.4;
+    }
+
+    .bio-body p {
+      font-size: 0.97rem;
+      margin-bottom: 1.1rem;
+      color: var(--clay);
+    }
+
+    /* ── SKILLS ROW ── */
+    .skills-section {
+      margin-bottom: 4rem;
+    }
+
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    /* ── NAV CARDS ── */
+    .nav-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--bark);
+      border: 1.5px solid var(--bark);
+      margin-bottom: 4rem;
+    }
+
+    .nav-card {
+      background: var(--cream);
+      padding: 1.8rem 1.4rem;
+      text-decoration: none;
+      color: var(--bark);
+      transition: background 0.15s;
+      display: block;
+    }
+
+    .nav-card:hover { background: var(--bark); color: var(--cream); }
+    .nav-card:hover .nc-label { color: var(--rust); }
+    .nav-card:hover .nc-arrow { color: var(--rust); }
+
+    .nc-label {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--moss);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .nc-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    .nc-arrow {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 0.7rem;
+      color: var(--stone);
+    }
+
+    @media (max-width: 640px) {
+      .about-grid { grid-template-columns: 1fr 1fr; }
+      .about-grid .photo-slot:last-child { display: none; }
+      .bio { grid-template-columns: 1fr; gap: 1.5rem; }
+      .nav-cards { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-name">RCR</a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">About</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="technical.html">Technical</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="container">
+
+  <div class="hero">
+    <p class="hero-eyebrow">Content &amp; Marketing Professional</p>
+    <h1>Robert<br>Correas-<em>Rivera</em></h1>
+    <p class="hero-sub">Journalism grad from the University of Scranton. Based in the Greater Philadelphia area. Fluent in content creation, social media management, and AI-assisted workflow.</p>
+    <div class="hero-cta">
+      <a href="portfolio.html" class="btn primary">View Portfolio</a>
+      <a href="contact.html" class="btn">Get in Touch</a>
+    </div>
+  </div>
+
+  <!-- Photos -->
+  <div class="about-grid">
+    <div class="photo-slot">
+      <img src="images/about-01.jpg" alt="Robert Correas-Rivera">
+    </div>
+    <div class="photo-slot">
+      <img src="images/about-02.jpg" alt="Robert with camera">
+    </div>
+    <div class="photo-slot">
+      <img src="images/about-03.jpg" alt="Robert on set">
+    </div>
+  </div>
+
+  <!-- Bio -->
+  <div class="bio">
+    <div class="bio-sidebar">
+      <div class="label-stack">
+        <div class="label-item">
+          <span class="lk">Location</span>
+          <span class="lv">West Chester, PA<br>Greater Philadelphia</span>
+        </div>
+        <div class="label-item">
+          <span class="lk">Education</span>
+          <span class="lv">B.S. Journalism &amp; Electronic Media<br>University of Scranton, 2024</span>
+        </div>
+        <div class="label-item">
+          <span class="lk">Minors</span>
+          <span class="lv">Film Production<br>Social Media Strategies</span>
+        </div>
+        <div class="label-item">
+          <span class="lk">Available</span>
+          <span class="lv">Hybrid or Remote</span>
+        </div>
+      </div>
+    </div>
+    <div class="bio-body">
+      <p>
+        My background is split between content creation and technical problem-solving. I graduated
+        from the University of Scranton in 2024 with a degree in Journalism and Electronic Media,
+        and my professional experience has lent itself to both sides of that.
+      </p>
+      <p>
+        At iPipeline I handled content support and data auditing for insurance carrier rate updates.
+        Using AI programs like Claude, Copilot, and Gemini, I developed tools that expedite workflow
+        and streamline processes that previously had to be done by hand. I presented that work to
+        senior leadership as part of a broader push to get the team using AI internally. Before that,
+        I ran social media for the University of Scranton across LinkedIn, Instagram, Facebook, and
+        TikTok, which had over 100,000 combined followers at the time.
+      </p>
+      <p>
+        I've used AI to develop systems to streamline my content production, and my journalism
+        training means I know when to step back in and make it sound like a person wrote it.
+      </p>
+    </div>
+  </div>
+
+  <!-- Skills -->
+  <div class="skills-section">
+    <div class="section-label">Skills</div>
+    <div class="skills-grid">
+      <span class="tag light">Social Media Strategy</span>
+      <span class="tag light">Content Creation</span>
+      <span class="tag light">Adobe Premiere Pro</span>
+      <span class="tag light">Photoshop</span>
+      <span class="tag light">InDesign</span>
+      <span class="tag light">Lightroom</span>
+      <span class="tag light">Illustrator</span>
+      <span class="tag light">AP Style Writing</span>
+      <span class="tag light">SEO</span>
+      <span class="tag light">Python</span>
+      <span class="tag light">HTML</span>
+      <span class="tag light">AI-Assisted Workflows</span>
+      <span class="tag light">Salesforce</span>
+      <span class="tag light">CMS Tools</span>
+      <span class="tag light">Technical Documentation</span>
+      <span class="tag light">Data Auditing</span>
+    </div>
+  </div>
+
+  <!-- Page nav cards -->
+  <div class="nav-cards">
+    <a href="portfolio.html" class="nav-card">
+      <span class="nc-label">Work</span>
+      <span class="nc-title">Portfolio</span>
+      <span class="nc-arrow">→</span>
+    </a>
+    <a href="gallery.html" class="nav-card">
+      <span class="nc-label">Photos &amp; Graphics</span>
+      <span class="nc-title">Gallery</span>
+      <span class="nc-arrow">→</span>
+    </a>
+    <a href="technical.html" class="nav-card">
+      <span class="nc-label">Automation &amp; AI</span>
+      <span class="nc-title">Technical Work</span>
+      <span class="nc-arrow">→</span>
+    </a>
+  </div>
+
+</div>
+
+<footer>
+  <span>© 2026 Robert Correas-Rivera</span>
+  <a href="contact.html">rbcorr02@gmail.com</a>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,158 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bark:    #2c2416;
+  --soil:    #3d2f1f;
+  --clay:    #7a5c3e;
+  --sand:    #c4a882;
+  --linen:   #f0e8d8;
+  --cream:   #faf6ef;
+  --sage:    #6b7c5c;
+  --forest:  #3a5c38;
+  --moss:    #527a4f;
+  --rust:    #8b4a2b;
+  --stone:   #9e8e7a;
+  --fog:     #e2d8c8;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  color: var(--bark);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 14px;
+  line-height: 1.75;
+  min-height: 100vh;
+}
+
+/* ── NAV ── */
+nav {
+  background: var(--soil);
+  padding: 0.9rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-name {
+  font-size: 0.75rem;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--sand);
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.8rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--fog);
+  transition: color 0.15s;
+}
+
+.nav-links a:hover { color: var(--sand); }
+.nav-links a.active { color: var(--moss); border-bottom: 2px solid var(--moss); padding-bottom: 2px; }
+
+/* ── CONTAINER ── */
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ── PAGE HEADER ── */
+.page-header {
+  padding: 3rem 0 2rem;
+  border-bottom: 3px solid var(--clay);
+  margin-bottom: 3rem;
+}
+
+.page-header .eyebrow {
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--moss);
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.page-header h1 {
+  font-size: clamp(1.6rem, 5vw, 2.5rem);
+  font-weight: bold;
+  color: var(--soil);
+  line-height: 1.15;
+}
+
+/* ── SECTION LABEL ── */
+.section-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--forest);
+  font-weight: bold;
+  margin-bottom: 0.9rem;
+}
+
+/* ── TAGS ── */
+.tag {
+  font-size: 0.62rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  background: var(--forest);
+  color: var(--cream);
+  padding: 0.2rem 0.6rem;
+  border-radius: 2px;
+  font-weight: bold;
+}
+
+.tag.light {
+  background: transparent;
+  color: var(--stone);
+  border: 1px solid var(--fog);
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--soil);
+  padding: 1.6rem 2rem;
+  margin-top: 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+footer span {
+  font-size: 0.68rem;
+  color: var(--stone);
+  letter-spacing: 0.05em;
+}
+
+footer a {
+  font-size: 0.68rem;
+  color: var(--sand);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+}
+
+footer a:hover { color: var(--cream); }
+
+/* ── RESPONSIVE NAV ── */
+@media (max-width: 540px) {
+  nav { padding: 0.8rem 1rem; }
+  .nav-links { gap: 1rem; }
+  .nav-links a { font-size: 0.62rem; }
+}

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technical Work — Robert Correas-Rivera</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .project {
+      border-top: 2px solid var(--fog);
+      padding: 2.8rem 0;
+    }
+
+    .project:first-of-type { border-top: none; }
+
+    .project-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    .project h2 {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--soil);
+    }
+
+    .project p {
+      font-size: 0.9rem;
+      color: var(--clay);
+      margin-bottom: 1.2rem;
+      line-height: 1.75;
+    }
+
+    .flow {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      margin: 1.8rem 0;
+      background: var(--linen);
+      border: 1.5px solid var(--fog);
+      padding: 1.2rem 1.4rem;
+      gap: 0;
+    }
+
+    .flow-step {
+      background: var(--cream);
+      border: 1.5px solid var(--sand);
+      padding: 0.45rem 0.85rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.04em;
+      color: var(--soil);
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .flow-arrow {
+      font-size: 1rem;
+      color: var(--forest);
+      padding: 0 0.5rem;
+      font-weight: bold;
+    }
+
+    .code-block {
+      background: var(--bark);
+      color: #d8ccb8;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.8rem;
+      line-height: 1.7;
+      padding: 1.6rem 1.8rem;
+      margin: 1.6rem 0;
+      overflow-x: auto;
+      border-left: 4px solid var(--rust);
+    }
+
+    .code-block .cm { color: #7a9468; }
+    .code-block .kw { color: #c9956a; }
+    .code-block .st { color: #a8c27a; }
+    .code-block .fn { color: #89b4c4; }
+
+    .pullquote {
+      background: var(--linen);
+      border-left: 4px solid var(--forest);
+      padding: 1rem 1.4rem;
+      margin: 1.8rem 0;
+      font-size: 0.95rem;
+      color: var(--soil);
+      font-style: italic;
+      line-height: 1.65;
+    }
+
+    .steps {
+      list-style: none;
+      margin: 1.6rem 0;
+      counter-reset: step;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.8rem;
+    }
+
+    .steps li {
+      counter-increment: step;
+      background: var(--linen);
+      border: 1.5px solid var(--fog);
+      border-top: 3px solid var(--forest);
+      padding: 1rem 1rem 1.1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .steps li::before {
+      content: "0" counter(step);
+      color: var(--forest);
+      font-size: 0.7rem;
+      font-weight: bold;
+      letter-spacing: 0.06em;
+      display: block;
+      background: none;
+      width: auto;
+      height: auto;
+      border-radius: 0;
+      margin: 0;
+    }
+
+    .steps li strong {
+      display: block;
+      font-size: 0.82rem;
+      color: var(--soil);
+      font-weight: bold;
+    }
+
+    .steps li span {
+      font-size: 0.78rem;
+      color: var(--stone);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 640px) {
+      .steps { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 400px) {
+      .steps { grid-template-columns: 1fr; }
+    }
+
+    .tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 1.4rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid var(--fog);
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-name">RCR</a>
+  <ul class="nav-links">
+    <li><a href="index.html">About</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="technical.html" class="active">Technical</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="container">
+
+  <div class="page-header">
+    <p class="eyebrow">Automation &amp; AI</p>
+    <h1>Technical Work</h1>
+  </div>
+
+  <div class="project">
+    <div class="section-label">Project 01 &middot; Automation</div>
+    <div class="project-meta">
+      <h2>Rate Data Pipeline Tool</h2>
+      <span class="tag">Python</span>
+      <span class="tag light">Corporate</span>
+    </div>
+
+    <p>At iPipeline, every time an insurance carrier sent updated rate data, someone had to manually reformat it, run tests, and produce a clean file to plug into our system. It took a while and the margin for error was real. I wrote a Python script that handled the whole thing.</p>
+
+    <div class="flow">
+      <div class="flow-step">Carrier Excel</div>
+      <div class="flow-arrow">&#8594;</div>
+      <div class="flow-step">Parse &amp; Map</div>
+      <div class="flow-arrow">&#8594;</div>
+      <div class="flow-step">Test Grid</div>
+      <div class="flow-arrow">&#8594;</div>
+      <div class="flow-step">Audit Log</div>
+      <div class="flow-arrow">&#8594;</div>
+      <div class="flow-step">Engine File</div>
+    </div>
+
+    <p>The script read in the carrier's sheet, mapped their column names to our engine's format, generated a test grid to check the outputs, flagged anything outside expected ranges in an audit log, and spat out a finished engine file ready to go into the system.</p>
+
+    <div class="code-block"><span class="cm"># Simplified example of the core mapping logic</span>
+
+<span class="kw">import</span> pandas <span class="kw">as</span> pd
+
+<span class="kw">def</span> <span class="fn">process_carrier_rates</span>(input_file):
+    df = pd.<span class="fn">read_excel</span>(input_file)
+
+    <span class="cm"># Map carrier columns to engine format</span>
+    engine_df = df.<span class="fn">rename</span>(columns={
+        <span class="st">'Age Band'</span>:      <span class="st">'age_range'</span>,
+        <span class="st">'Monthly Rate'</span>:   <span class="st">'rate_monthly'</span>,
+        <span class="st">'Effective Date'</span>: <span class="st">'eff_date'</span>
+    })
+
+    <span class="cm"># Flag rows that fall outside expected ranges</span>
+    audit_flags = engine_df[engine_df[<span class="st">'rate_monthly'</span>] &gt; threshold]
+
+    <span class="kw">return</span> engine_df, audit_flags</div>
+
+    <p>I put together a presentation on it for senior leadership as part of a broader effort to get the team thinking about where automation could actually save time. That went well.</p>
+
+    <div class="tools">
+      <span class="tag light">Python</span>
+      <span class="tag light">pandas</span>
+      <span class="tag light">openpyxl</span>
+      <span class="tag light">Excel</span>
+      <span class="tag light">AI-assisted development</span>
+    </div>
+  </div>
+
+  <div class="project">
+    <div class="section-label">Project 02 &middot; AI Workflow</div>
+    <div class="project-meta">
+      <h2>Content Production with AI</h2>
+      <span class="tag">Workflow</span>
+      <span class="tag light">Content Strategy</span>
+    </div>
+
+    <p>Most of my content work involves AI at some point now, not to write things for me but to move faster on the parts that don't need my full attention. Here's what that actually looks like in practice.</p>
+
+    <div class="pullquote">
+      AI is good at structure. It's bad at voice. Knowing which parts to hand off is the whole skill.
+    </div>
+
+    <ol class="steps">
+      <li>
+        <strong>Brief and research</strong>
+        <span>I conduct research and use AI to help surface angles, fill in gaps, and get a skeleton down. Audience, platform, goal, and tone are set before anything gets written.</span>
+      </li>
+      <li>
+        <strong>Write and edit</strong>
+        <span>Writing is mine. I'll use AI for specific rewrites on a sentence level, but nothing goes anywhere without a full pass from me first.</span>
+      </li>
+      <li>
+        <strong>Style check</strong>
+        <span>AP Style pass and brand voice review. If it sounds like it came from a chatbot, it gets rewritten. The audience can tell and so can I.</span>
+      </li>
+      <li>
+        <strong>Platform cut</strong>
+        <span>The same approved content becomes a LinkedIn post, an Instagram caption, a newsletter blurb. Each one gets adjusted for how people actually read on that platform.</span>
+      </li>
+    </ol>
+
+    <div class="tools">
+      <span class="tag light">ChatGPT</span>
+      <span class="tag light">Claude</span>
+      <span class="tag light">AP Style</span>
+      <span class="tag light">CMS</span>
+      <span class="tag light">Notion</span>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <span>&copy; 2026 Robert Correas-Rivera</span>
+  <a href="contact.html">rbcorr02@gmail.com</a>
+</footer>
+
+</body>
+</html>
