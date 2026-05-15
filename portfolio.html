@@ -6,23 +6,20 @@
   <title>Portfolio — Robert Correas-Rivera</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* ── VIDEO GRID ── */
     .video-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
+      gap: 1.8rem;
       margin-bottom: 1rem;
     }
-
-    .video-item {}
 
     .video-wrap {
       position: relative;
       padding-bottom: 56.25%;
       height: 0;
       overflow: hidden;
-      border: 1.5px solid var(--bark);
-      background: var(--bark);
+      border: 1px solid var(--border);
+      background: var(--surface);
     }
 
     .video-wrap iframe {
@@ -34,16 +31,15 @@
 
     .video-caption {
       margin-top: 0.6rem;
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
       font-size: 0.65rem;
-      color: var(--stone);
+      color: var(--text3);
       letter-spacing: 0.06em;
     }
 
-    /* ── SECTION DIVIDER ── */
     .section-block {
-      border-top: 1.5px solid var(--bark);
-      padding: 3rem 0;
+      padding: 2.8rem 0;
+      border-top: 3px solid var(--orange);
+      margin-top: 0.5rem;
     }
 
     .section-block:first-of-type {
@@ -51,15 +47,8 @@
       padding-top: 0;
     }
 
-    /* ── STORIES LIST ── */
-    .stories-list {
-      list-style: none;
-      margin-top: 1.2rem;
-    }
-
-    .stories-list li {
-      border-bottom: 1px solid var(--fog);
-    }
+    .stories-list { list-style: none; margin-top: 1.2rem; }
+    .stories-list li { border-bottom: 1px solid var(--border); }
 
     .stories-list a {
       display: flex;
@@ -67,34 +56,25 @@
       align-items: baseline;
       padding: 1rem 0;
       text-decoration: none;
-      color: var(--bark);
+      color: var(--text);
       gap: 1rem;
       transition: color 0.15s;
     }
 
-    .stories-list a:hover { color: var(--rust); }
-    .stories-list a:hover .story-arrow { color: var(--rust); }
+    .stories-list a:hover { color: var(--orange); }
+    .stories-list a:hover .story-arrow { color: var(--orange); }
+    .story-title { font-size: 0.97rem; line-height: 1.4; flex: 1; }
+    .story-pub { font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text3); white-space: nowrap; }
+    .story-arrow { font-size: 0.8rem; color: var(--text3); flex-shrink: 0; transition: color 0.15s; }
 
-    .story-title {
-      font-size: 0.97rem;
-      line-height: 1.4;
-      flex: 1;
-    }
-
-    .story-pub {
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
-      font-size: 0.6rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--stone);
-      white-space: nowrap;
-    }
-
-    .story-arrow {
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
-      font-size: 0.8rem;
-      color: var(--fog);
-      flex-shrink: 0;
+    .scrantones-note {
+      background: var(--surface);
+      border-left: 3px solid var(--orange);
+      padding: 1rem 1.4rem;
+      margin-bottom: 1.6rem;
+      font-size: 0.88rem;
+      color: var(--text2);
+      line-height: 1.65;
     }
 
     @media (max-width: 600px) {
@@ -122,114 +102,116 @@
     <h1>Portfolio</h1>
   </div>
 
+  <!-- Tattoo Documentary -->
+  <div class="section-block">
+    <div class="section-label">Featured &middot; Documentary</div>
+    <div class="video-grid" style="grid-template-columns: 1fr; max-width: 680px;">
+      <div>
+        <div class="video-wrap" style="border-color: var(--green2);">
+          <iframe src="https://www.youtube.com/embed/cpc5z1BZSo4" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="video-caption">Tattoo Documentary &mdash; Electric City Tattoo Shop. Interviews with artists about their work and who they are.</p>
+      </div>
+    </div>
+  </div>
+
   <!-- Social Media Videos -->
   <div class="section-block">
-    <div class="section-label">Social Media Video — University of Scranton</div>
-
+    <div class="section-label">Social Media Video &middot; University of Scranton</div>
     <div class="video-grid">
-      <div class="video-item">
-        <div class="video-wrap">
-          <iframe src="https://www.youtube.com/embed/hi3jezVC9Cc" allowfullscreen loading="lazy"></iframe>
-        </div>
+      <div>
+        <div class="video-wrap"><iframe src="https://www.youtube.com/embed/hi3jezVC9Cc" allowfullscreen loading="lazy"></iframe></div>
         <p class="video-caption">Social Media Video 01</p>
       </div>
-      <div class="video-item">
-        <div class="video-wrap">
-          <iframe src="https://www.youtube.com/embed/3NAyPZmBRg0" allowfullscreen loading="lazy"></iframe>
-        </div>
+      <div>
+        <div class="video-wrap"><iframe src="https://www.youtube.com/embed/3NAyPZmBRg0" allowfullscreen loading="lazy"></iframe></div>
         <p class="video-caption">Social Media Video 02</p>
       </div>
-      <div class="video-item">
-        <div class="video-wrap">
-          <iframe src="https://www.youtube.com/embed/V6JXf0x_7p8" allowfullscreen loading="lazy"></iframe>
-        </div>
+      <div>
+        <div class="video-wrap"><iframe src="https://www.youtube.com/embed/V6JXf0x_7p8" allowfullscreen loading="lazy"></iframe></div>
         <p class="video-caption">Social Media Video 03</p>
       </div>
-      <div class="video-item">
-        <div class="video-wrap">
-          <iframe src="https://www.youtube.com/embed/cXDsai1s3l8" allowfullscreen loading="lazy"></iframe>
-        </div>
+      <div>
+        <div class="video-wrap"><iframe src="https://www.youtube.com/embed/cXDsai1s3l8" allowfullscreen loading="lazy"></iframe></div>
         <p class="video-caption">Social Media Video 04</p>
       </div>
-      <div class="video-item">
-        <div class="video-wrap">
-          <iframe src="https://www.youtube.com/embed/GjZV3G1G0Ew" allowfullscreen loading="lazy"></iframe>
-        </div>
+      <div>
+        <div class="video-wrap"><iframe src="https://www.youtube.com/embed/GjZV3G1G0Ew" allowfullscreen loading="lazy"></iframe></div>
         <p class="video-caption">Social Media Video 05</p>
       </div>
-      <div class="video-item">
-        <div class="video-wrap">
-          <iframe src="https://www.youtube.com/embed/E_a1VH759QM" allowfullscreen loading="lazy"></iframe>
-        </div>
+      <div>
+        <div class="video-wrap"><iframe src="https://www.youtube.com/embed/E_a1VH759QM" allowfullscreen loading="lazy"></iframe></div>
         <p class="video-caption">Social Media Video 06</p>
       </div>
     </div>
   </div>
 
-  <!-- Personal / Class Videos -->
+  <!-- Personal Videos -->
   <div class="section-block">
-    <div class="section-label">Personal &amp; Class Projects — Video</div>
-
+    <div class="section-label">Personal &amp; Class Projects &middot; Video</div>
     <div class="video-grid">
-      <div class="video-item">
-        <div class="video-wrap">
-          <iframe src="https://www.youtube.com/embed/BHgmsim6Xs8" allowfullscreen loading="lazy"></iframe>
-        </div>
+      <div>
+        <div class="video-wrap"><iframe src="https://www.youtube.com/embed/BHgmsim6Xs8" allowfullscreen loading="lazy"></iframe></div>
         <p class="video-caption">Personal Project 01</p>
       </div>
-      <div class="video-item">
-        <div class="video-wrap">
-          <iframe src="https://www.youtube.com/embed/cpc5z1BZSo4" allowfullscreen loading="lazy"></iframe>
-        </div>
+      <div>
+        <div class="video-wrap"><iframe src="https://www.youtube.com/embed/WBIuQ6qURmE" allowfullscreen loading="lazy"></iframe></div>
         <p class="video-caption">Personal Project 02</p>
       </div>
-      <div class="video-item">
+    </div>
+  </div>
+
+  <!-- The Scrantones -->
+  <div class="section-block">
+    <div class="section-label">Audio Production &middot; The Scrantones</div>
+    <p class="scrantones-note">Recorded, edited, and arranged songs for the Scrantones during my time at the University of Scranton.</p>
+    <div class="video-grid" style="grid-template-columns: 1fr; max-width: 680px;">
+      <div>
         <div class="video-wrap">
-          <iframe src="https://www.youtube.com/embed/WBIuQ6qURmE" allowfullscreen loading="lazy"></iframe>
+          <iframe src="https://www.youtube.com/embed/Pj8QK_RphOU" allowfullscreen loading="lazy"></iframe>
         </div>
-        <p class="video-caption">Personal Project 03</p>
+        <p class="video-caption">Birds of a Feather &mdash; The Scrantones</p>
       </div>
     </div>
   </div>
 
   <!-- Published Writing -->
   <div class="section-block">
-    <div class="section-label">Published Writing — The University of Scranton</div>
-
+    <div class="section-label">Published Writing &middot; The University of Scranton</div>
     <ul class="stories-list">
       <li>
         <a href="https://news.scranton.edu/articles/2023/07/stu-summer-spotlight-ben-trexler.shtml" target="_blank" rel="noopener">
           <span class="story-title">Summer Spotlight: Ben Trexler</span>
           <span class="story-pub">news.scranton.edu</span>
-          <span class="story-arrow">↗</span>
+          <span class="story-arrow">&#8599;</span>
         </a>
       </li>
       <li>
         <a href="https://news.scranton.edu/articles/2023/07/stu-spotlight-spark-23.shtml" target="_blank" rel="noopener">
           <span class="story-title">Student Spotlight: SPARK '23</span>
           <span class="story-pub">news.scranton.edu</span>
-          <span class="story-arrow">↗</span>
+          <span class="story-arrow">&#8599;</span>
         </a>
       </li>
       <li>
         <a href="https://news.scranton.edu/articles/2023/07/stu-spotlight-amelia-semple.shtml" target="_blank" rel="noopener">
           <span class="story-title">Student Spotlight: Amelia Semple</span>
           <span class="story-pub">news.scranton.edu</span>
-          <span class="story-arrow">↗</span>
+          <span class="story-arrow">&#8599;</span>
         </a>
       </li>
       <li>
         <a href="https://news.scranton.edu/articles/2023/08/stu-23-royals-of-color-kickoff.shtml" target="_blank" rel="noopener">
           <span class="story-title">Royals of Color Kickoff 2023</span>
           <span class="story-pub">news.scranton.edu</span>
-          <span class="story-arrow">↗</span>
+          <span class="story-arrow">&#8599;</span>
         </a>
       </li>
       <li>
         <a href="https://www.scranton.edu/scrantonstory/blogs/maureen-mcguigan.html" target="_blank" rel="noopener">
           <span class="story-title">The Scranton Story: Maureen McGuigan</span>
           <span class="story-pub">scranton.edu</span>
-          <span class="story-arrow">↗</span>
+          <span class="story-arrow">&#8599;</span>
         </a>
       </li>
     </ul>
@@ -238,8 +220,8 @@
 </div>
 
 <footer>
-  <span>© 2026 Robert Correas-Rivera</span>
-  <a href="contact.html">rbcorr02@gmail.com</a>
+  <span>&copy; 2026 Robert Correas-Rivera</span>
+  <a href="mailto:rbcorr02@gmail.com">rbcorr02@gmail.com</a>
 </footer>
 
 </body>

@@ -3,45 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio of Robert Correas-Rivera, a content and marketing professional with expertise in social media strategy, content creation, and AI-assisted workflows.">
+  <meta name="description" content="Robert Correas-Rivera — writer, producer, and performer based in Chester County, PA.">
   <title>Robert Correas-Rivera</title>
   <link rel="stylesheet" href="style.css">
   <style>
     /* ── HERO ── */
     .hero {
-      padding: 4rem 0 3rem;
-      border-bottom: 3px solid var(--bark);
-      margin-bottom: 3.5rem;
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 4rem;
+      align-items: center;
+      padding: 5rem 0 4.5rem;
+      border-bottom: 2px solid var(--orange);
+      margin-bottom: 4rem;
     }
 
     .hero-eyebrow {
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--moss);
-      margin-bottom: 1rem;
-      display: block;
+      color: var(--orange);
+      margin-bottom: 1.4rem;
+      display: inline-block;
+      font-weight: bold;
+      border: 1.5px solid var(--orange);
+      padding: 0.3rem 0.8rem;
     }
 
     .hero h1 {
-      font-size: clamp(2.4rem, 8vw, 4.5rem);
+      font-size: clamp(2.8rem, 8vw, 5rem);
       font-weight: 700;
       line-height: 1.0;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.8rem;
+      color: var(--text);
     }
 
     .hero h1 em {
       font-style: italic;
-      color: var(--rust);
+      color: var(--orange);
     }
 
     .hero-sub {
-      font-size: 1.05rem;
-      color: var(--stone);
-      max-width: 520px;
-      line-height: 1.65;
-      margin-bottom: 2rem;
+      font-size: 0.97rem;
+      color: var(--text2);
+      max-width: 480px;
+      line-height: 1.8;
+      margin-bottom: 2.2rem;
     }
 
     .hero-cta {
@@ -56,180 +63,147 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
       text-decoration: none;
-      padding: 0.65rem 1.3rem;
-      border: 1.5px solid var(--bark);
-      color: var(--bark);
-      transition: background 0.15s, color 0.15s, transform 0.15s;
+      padding: 0.75rem 1.5rem;
+      border: 1.5px solid var(--border);
+      color: var(--text2);
+      transition: all 0.15s;
       display: inline-block;
     }
-    
-    .btn:hover { 
-      background: var(--bark); 
-      color: var(--cream);
-      transform: translateY(-2px);
-    }
-    
-    .btn.primary { 
-      background: var(--bark); 
-      color: var(--cream);
-    }
-    
-    .btn.primary:hover { 
-      background: var(--rust); 
-      border-color: var(--rust);
-      transform: translateY(-2px);
+
+    .btn:hover { border-color: var(--text2); color: var(--text); }
+
+    .btn.primary {
+      background: var(--orange);
+      border-color: var(--orange);
+      color: #0c1a09;
+      font-weight: bold;
     }
 
-    .btn:hover { background: var(--bark); color: var(--cream); }
-    .btn.primary { background: var(--bark); color: var(--cream); }
-    .btn.primary:hover { background: var(--rust); border-color: var(--rust); }
-
-    /* ── ABOUT GRID ── */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 1.5rem;
-      margin-bottom: 3.5rem;
+    .btn.primary:hover {
+      background: var(--orange2);
+      border-color: var(--orange2);
     }
 
-    .photo-slot {
-      aspect-ratio: 3/4;
-      background: var(--fog);
-      border: 1.5px solid var(--bark);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    /* photo with offset orange frame */
+    .hero-photo-wrap {
+      position: relative;
+    }
+
+    .hero-photo-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 2px solid var(--orange);
+      transform: translate(10px, 10px);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .hero-photo {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      aspect-ratio: 4/5;
       overflow: hidden;
+      border: 1px solid var(--border);
     }
 
-    .photo-slot img {
+    .hero-photo img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center 15%;
       display: block;
     }
 
-    .photo-slot .placeholder-text {
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
-      font-size: 0.6rem;
-      color: var(--stone);
-      text-align: center;
-      padding: 1rem;
-      letter-spacing: 0.08em;
-    }
-
-    /* ── BIO SECTION ── */
-    .bio {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 3rem;
-      margin-bottom: 4rem;
-      padding-bottom: 3rem;
-      border-bottom: 1.5px solid var(--fog);
-    }
-
-    .bio-sidebar {}
-
-    .bio-sidebar .label-stack {
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
-    }
-
-    .label-item {}
-    .label-item .lk {
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
-      font-size: 0.6rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--moss);
-      display: block;
-      margin-bottom: 0.2rem;
-    }
-    .label-item .lv {
-      font-size: 0.9rem;
-      color: var(--bark);
-      line-height: 1.4;
-    }
-
-    .bio-body p {
-      font-size: 0.97rem;
-      margin-bottom: 1.1rem;
-      color: var(--clay);
-    }
-
-    /* ── SKILLS ROW ── */
-    .skills-section {
-      margin-bottom: 4rem;
-    }
-
-    .skills-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 1rem;
-    }
-
-    /* ── NAV CARDS ── */
-    .nav-cards {
+    /* ── SECTION CARDS ── */
+    .work-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1px;
-      background: var(--bark);
-      border: 1.5px solid var(--bark);
-      margin-bottom: 4rem;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-bottom: 5rem;
     }
 
-    .nav-card {
-      background: var(--cream);
-      padding: 1.8rem 1.4rem;
+    .work-card {
+      background: var(--surface);
+      padding: 2rem 1.8rem;
       text-decoration: none;
-      color: var(--bark);
+      color: var(--text);
+      display: block;
       transition: background 0.15s;
-      display: block;
+      border-top: 3px solid transparent;
     }
 
-    .nav-card:hover { background: var(--bark); color: var(--cream); }
-    .nav-card:hover .nc-label { color: var(--rust); }
-    .nav-card:hover .nc-arrow { color: var(--rust); transform: translateX(4px); }
+    .work-card:hover {
+      background: var(--surface2);
+      border-top-color: var(--orange);
+    }
 
-    .nc-label {
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
-      font-size: 0.6rem;
-      letter-spacing: 0.15em;
+    .wc-label {
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--moss);
+      color: var(--orange);
+      font-weight: bold;
       display: block;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.7rem;
     }
 
-    .nc-title {
-      font-size: 1.05rem;
-      font-weight: 700;
+    .wc-title {
+      font-size: 1rem;
+      font-weight: bold;
       display: block;
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.6rem;
     }
 
-    .nc-arrow {
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
-      font-size: 0.7rem;
-      color: var(--stone);
+    .wc-desc {
+      font-size: 0.8rem;
+      color: var(--text2);
+      line-height: 1.65;
+      display: block;
     }
 
-    @media (max-width: 640px) {
-      .about-grid { grid-template-columns: 1fr 1fr; }
-      .about-grid .photo-slot:last-child { display: none; }
-      .bio { grid-template-columns: 1fr; gap: 1.5rem; }
-      .nav-cards { grid-template-columns: 1fr; }
+    /* ── BIO ── */
+    .bio {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      padding: 3.5rem 0;
+      border-top: 2px solid var(--orange);
+    }
+
+
+    .bio p {
+      font-size: 0.92rem;
+      color: var(--text2);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .bio-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.2rem;
+    }
+
+    @media (max-width: 700px) {
+      .hero { grid-template-columns: 1fr; gap: 2.5rem; padding: 3rem 0 3.5rem; }
+      .hero-photo-wrap { max-width: 240px; }
+      .hero-photo-wrap::after { display: none; }
+      .work-grid { grid-template-columns: 1fr; }
+      .bio { grid-template-columns: 1fr; gap: 2rem; }
     }
   </style>
 </head>
 <body>
 
-<nav aria-label="Primary navigation">
-  <a href="index.html" class="nav-name" aria-label="Home page">RCR</a>
+<nav>
+  <a href="index.html" class="nav-name">RCR</a>
   <ul class="nav-links">
-    <li><a href="index.html" class="active" aria-current="page">About</a></li>
+    <li><a href="index.html" class="active">About</a></li>
     <li><a href="portfolio.html">Portfolio</a></li>
     <li><a href="gallery.html">Gallery</a></li>
     <li><a href="technical.html">Technical</a></li>
@@ -240,118 +214,87 @@
 <div class="container">
 
   <div class="hero">
-    <p class="hero-eyebrow">Content &amp; Marketing Professional</p>
-    <h1>Robert<br>Correas-<em>Rivera</em></h1>
-    <p class="hero-sub">Journalism grad from the University of Scranton. Based in the Greater Philadelphia area. Fluent in content creation, social media management, and AI-assisted workflow.</p>
-    <div class="hero-cta">
-      <a href="portfolio.html" class="btn primary">View Portfolio</a>
-      <a href="contact.html" class="btn">Get in Touch</a>
-    </div>
-  </div>
-
-  <!-- Photos -->
-  <div class="about-grid">
-    <div class="photo-slot">
-      <img src="images/about-01.jpg" alt="Robert Correas-Rivera">
-    </div>
-    <div class="photo-slot">
-      <img src="images/about-02.jpg" alt="Robert with camera">
-    </div>
-    <div class="photo-slot">
-      <img src="images/about-03.jpg" alt="Robert on set">
-    </div>
-  </div>
-
-  <!-- Bio -->
-  <div class="bio">
-    <div class="bio-sidebar">
-      <div class="label-stack">
-        <div class="label-item">
-          <span class="lk">Location</span>
-          <span class="lv">West Chester, PA<br>Greater Philadelphia</span>
-        </div>
-        <div class="label-item">
-          <span class="lk">Education</span>
-          <span class="lv">B.S. Journalism &amp; Electronic Media<br>University of Scranton, 2024</span>
-        </div>
-        <div class="label-item">
-          <span class="lk">Minors</span>
-          <span class="lv">Film Production<br>Social Media Strategies</span>
-        </div>
-        <div class="label-item">
-          <span class="lk">Available</span>
-          <span class="lv">Hybrid or Remote</span>
-        </div>
+    <div>
+      <span class="hero-eyebrow">Writer &nbsp;&middot;&nbsp; Producer &nbsp;&middot;&nbsp; Performer</span>
+      <h1>Robert<br><em>Correas-</em><br>Rivera.</h1>
+      <p class="hero-sub">
+        Journalism degree from Scranton. Content, video, audio, a bit of code.
+        I pick things up fast. Chester County, PA.
+      </p>
+      <div class="hero-cta">
+        <a href="portfolio.html" class="btn primary">See my work</a>
+        <a href="contact.html" class="btn">Get in touch</a>
+        <a href="Robert_C-R_Resume.pdf" target="_blank" class="btn">Resume</a>
       </div>
     </div>
-    <div class="bio-body">
-      <p>
-        My background is split between content creation and technical problem-solving. I graduated
-        from the University of Scranton in 2024 with a degree in Journalism and Electronic Media,
-        and my professional experience has lent itself to both sides of that.
-      </p>
-      <p>
-        At iPipeline I handled content support and data auditing for insurance carrier rate updates.
-        Using AI programs like Claude, Copilot, and Gemini, I developed tools that expedite workflow
-        and streamline processes that previously had to be done by hand. I presented that work to
-        senior leadership as part of a broader push to get the team using AI internally. Before that,
-        I ran social media for the University of Scranton across LinkedIn, Instagram, Facebook, and
-        TikTok, which had over 100,000 combined followers at the time.
-      </p>
-      <p>
-        I've used AI to develop systems to streamline my content production, and my journalism
-        training means I know when to step back in and make it sound like a person wrote it.
-      </p>
+    <div class="hero-photo-wrap">
+      <div class="hero-photo">
+        <img src="images/rob-correas-rivera.jpg" alt="Robert Correas-Rivera">
+      </div>
     </div>
   </div>
 
-  <!-- Skills -->
-  <div class="skills-section">
-    <div class="section-label">Skills</div>
-    <div class="skills-grid">
-      <span class="tag light">Social Media Strategy</span>
-      <span class="tag light">Content Creation</span>
-      <span class="tag light">Adobe Premiere Pro</span>
-      <span class="tag light">Photoshop</span>
-      <span class="tag light">InDesign</span>
-      <span class="tag light">Lightroom</span>
-      <span class="tag light">Illustrator</span>
-      <span class="tag light">AP Style Writing</span>
-      <span class="tag light">SEO</span>
-      <span class="tag light">Python</span>
-      <span class="tag light">HTML</span>
-      <span class="tag light">AI-Assisted Workflows</span>
-      <span class="tag light">Salesforce</span>
-      <span class="tag light">CMS Tools</span>
-      <span class="tag light">Technical Documentation</span>
-      <span class="tag light">Data Auditing</span>
-    </div>
+  <div class="section-label" style="margin-bottom: 1.2rem;">Explore</div>
+  <div class="work-grid">
+    <a href="portfolio.html" class="work-card">
+      <span class="wc-label">Portfolio</span>
+      <span class="wc-title">Content & Video</span>
+      <span class="wc-desc">Social media video, documentary work, audio production, and published writing.</span>
+    </a>
+    <a href="gallery.html" class="work-card">
+      <span class="wc-label">Gallery</span>
+      <span class="wc-title">Photography & Design</span>
+      <span class="wc-desc">Campus photography and graphic design from university and personal projects.</span>
+    </a>
+    <a href="technical.html" class="work-card">
+      <span class="wc-label">Technical</span>
+      <span class="wc-title">Automation & AI</span>
+      <span class="wc-desc">Dashboards, Python pipelines, and AI-assisted content workflows.</span>
+    </a>
   </div>
 
-  <!-- Page nav cards -->
-  <div class="nav-cards">
-    <a href="portfolio.html" class="nav-card">
-      <span class="nc-label">Work</span>
-      <span class="nc-title">Portfolio</span>
-      <span class="nc-arrow">→</span>
-    </a>
-    <a href="gallery.html" class="nav-card">
-      <span class="nc-label">Photos &amp; Graphics</span>
-      <span class="nc-title">Gallery</span>
-      <span class="nc-arrow">→</span>
-    </a>
-    <a href="technical.html" class="nav-card">
-      <span class="nc-label">Automation &amp; AI</span>
-      <span class="nc-title">Technical Work</span>
-      <span class="nc-arrow">→</span>
-    </a>
+  <div class="bio">
+    <div>
+      <div class="section-label">About</div>
+      <p>
+        Based in Chester County, PA. Journalism was the degree. I pick things up fast
+        and that combination has taken me to a lot of different kinds of work.
+      </p>
+      <p>
+        I perform with the Players Club of Swarthmore and spent some time recording
+        and arranging with the Scrantones at Scranton.
+      </p>
+      <div class="bio-tags">
+        <span class="tag light">Content Strategy</span>
+        <span class="tag light">Video Production</span>
+        <span class="tag light">Audio Production</span>
+        <span class="tag light">Social Media</span>
+        <span class="tag light">AP Style</span>
+        <span class="tag light">Python</span>
+        <span class="tag light">Theater</span>
+      </div>
+    </div>
+    <div>
+      <div class="section-label">Background</div>
+      <p>University of Scranton &mdash; B.S. Journalism &amp; Electronic Media</p>
+      <p>
+        Social media production for a 100K+ follower university account. Content and
+        automation work at iPipeline. Video, photography, and graphic design across
+        personal and professional projects.
+      </p>
+      <p>
+        Looking for marketing coordinator, content, or digital communications roles
+        in Greater Philadelphia. Open to remote.
+      </p>
+    </div>
   </div>
 
 </div>
+</div>
 
 <footer>
-  <span>© 2026 Robert Correas-Rivera</span>
-  <a href="contact.html">rbcorr02@gmail.com</a>
+  <span>&copy; 2026 Robert Correas-Rivera</span>
+  <a href="mailto:rbcorr02@gmail.com">rbcorr02@gmail.com</a>
 </footer>
 
 </body>

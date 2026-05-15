@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css">
   <style>
     .project {
-      border-top: 2px solid var(--fog);
+      border-top: 1px solid var(--border);
       padding: 2.8rem 0;
     }
 
@@ -24,69 +24,74 @@
     .project h2 {
       font-size: 1.2rem;
       font-weight: bold;
-      color: var(--soil);
+      color: var(--text);
     }
 
     .project p {
       font-size: 0.9rem;
-      color: var(--clay);
+      color: var(--text2);
       margin-bottom: 1.2rem;
       line-height: 1.75;
     }
+
+    .project a { color: var(--orange); }
+    .project a:hover { color: var(--orange2); }
 
     .flow {
       display: flex;
       align-items: center;
       flex-wrap: wrap;
       margin: 1.8rem 0;
-      background: var(--linen);
-      border: 1.5px solid var(--fog);
+      background: var(--surface);
+      border: 1px solid var(--border);
       padding: 1.2rem 1.4rem;
       gap: 0;
     }
 
     .flow-step {
-      background: var(--cream);
-      border: 1.5px solid var(--sand);
+      background: var(--surface2);
+      border: 1px solid var(--border);
       padding: 0.45rem 0.85rem;
       font-size: 0.72rem;
       letter-spacing: 0.04em;
-      color: var(--soil);
+      color: var(--text);
       font-weight: bold;
       white-space: nowrap;
     }
 
     .flow-arrow {
       font-size: 1rem;
-      color: var(--forest);
+      color: var(--orange);
       padding: 0 0.5rem;
       font-weight: bold;
     }
 
     .code-block {
-      background: var(--bark);
-      color: #d8ccb8;
+      background: #080f06;
+      color: #c8d8b0;
       font-family: 'Courier New', Courier, monospace;
       font-size: 0.8rem;
       line-height: 1.7;
       padding: 1.6rem 1.8rem;
       margin: 1.6rem 0;
       overflow-x: auto;
-      border-left: 4px solid var(--rust);
+      border-left: 3px solid var(--orange);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--orange);
     }
 
-    .code-block .cm { color: #7a9468; }
-    .code-block .kw { color: #c9956a; }
-    .code-block .st { color: #a8c27a; }
-    .code-block .fn { color: #89b4c4; }
+    .code-block .cm { color: #5a7a48; }
+    .code-block .kw { color: var(--orange); }
+    .code-block .st { color: #88c27a; }
+    .code-block .fn { color: #78aac4; }
 
     .pullquote {
-      background: var(--linen);
-      border-left: 4px solid var(--forest);
+      background: var(--surface);
+      border-left: 3px solid var(--orange);
       padding: 1rem 1.4rem;
       margin: 1.8rem 0;
       font-size: 0.95rem;
-      color: var(--soil);
+      color: var(--text);
       font-style: italic;
       line-height: 1.65;
     }
@@ -102,9 +107,9 @@
 
     .steps li {
       counter-increment: step;
-      background: var(--linen);
-      border: 1.5px solid var(--fog);
-      border-top: 3px solid var(--forest);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--orange);
       padding: 1rem 1rem 1.1rem;
       display: flex;
       flex-direction: column;
@@ -113,36 +118,24 @@
 
     .steps li::before {
       content: "0" counter(step);
-      color: var(--forest);
+      color: var(--orange);
       font-size: 0.7rem;
       font-weight: bold;
       letter-spacing: 0.06em;
       display: block;
-      background: none;
-      width: auto;
-      height: auto;
-      border-radius: 0;
-      margin: 0;
     }
 
     .steps li strong {
       display: block;
       font-size: 0.82rem;
-      color: var(--soil);
+      color: var(--text);
       font-weight: bold;
     }
 
     .steps li span {
       font-size: 0.78rem;
-      color: var(--stone);
+      color: var(--text2);
       line-height: 1.6;
-    }
-
-    @media (max-width: 640px) {
-      .steps { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 400px) {
-      .steps { grid-template-columns: 1fr; }
     }
 
     .tools {
@@ -151,7 +144,14 @@
       gap: 0.45rem;
       margin-top: 1.4rem;
       padding-top: 1.2rem;
-      border-top: 1px solid var(--fog);
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 640px) {
+      .steps { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 400px) {
+      .steps { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -175,6 +175,7 @@
     <h1>Technical Work</h1>
   </div>
 
+
   <div class="project">
     <div class="section-label">Project 01 &middot; Data Visualization</div>
     <div class="project-meta">
@@ -195,7 +196,7 @@
       <div class="flow-step">Live Dashboard</div>
     </div>
 
-    <p><a href="https://github.com/rbcorr01/Applications-Dashboard" target="_blank" rel="noopener">View on GitHub &#8599;</a></p>
+    <p><a href="https://rbcorr01.github.io/Applications-Dashboard" target="_blank" rel="noopener">View live &#8599;</a></p>
 
     <div class="tools">
       <span class="tag light">HTML</span>
@@ -249,7 +250,7 @@
 
     <span class="kw">return</span> engine_df, audit_flags</div>
 
-    <p>I put together a presentation on it for senior leadership as part of a broader effort to get the team thinking about where automation could actually save time. That went well.</p>
+    <p>I put together a presentation on it for senior leadership as part of a broader effort to get the team thinking about where automation could actually save time.</p>
 
     <div class="tools">
       <span class="tag light">Python</span>
@@ -302,12 +303,11 @@
     </div>
   </div>
 
-
 </div>
 
 <footer>
   <span>&copy; 2026 Robert Correas-Rivera</span>
-  <a href="contact.html">rbcorr02@gmail.com</a>
+  <a href="mailto:rbcorr02@gmail.com">rbcorr02@gmail.com</a>
 </footer>
 
 </body>
